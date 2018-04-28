@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fist Freerun</title>
+    <link rel="shortcut icon" href="#" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    {% load staticfiles %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(window).ready(function(){
+  $.ajax({
+         method:"GET",
+         url:"/user/create/",
+            success:function(data){
+             var i;
+             for(i=0;i<data.length;i++){
+                 $(".view").prepend("<div class='views'><p><span>#" + data[i].fields.name + "#</span>  " + data[i].fields.story + "</p></div>");
+             }
+            }
+       })
+            $(".loader").hide();
+  $(".container").css('visibility','visible');
+  $(".h").css('background','transparent');
+  $(".nav.nav-tabs a").css('border','none');
+  $(".nav.nav-tabs a").css('color','#322f30');
+  $(".h").css('text-decoration','underline');
+})
+$(document).ready(function() {
+    $(".videos").on("click", function () {
+        $(".tab-content").scrollTop(0);
+  $(".v").css('border-bottom','5px solid !important');
+  $(".h").css('border','none');
+  $(".at").css('border','none');
+  $(".po").css('border','none');
+   $(".tab-content").css('overflow-y','auto');
+  $(".nav.nav-tabs a").css('border','none');
+  $(".nav.nav-tabs a").css('color','#322f30');
+
+  $(".tab-content").css('background-image','url(/static/Capture9.PNG)');
+  $(".v").css('background','transparent');
+  $(".tab-content").css('background-size','100% 100%');
+  $(".tab-content").css('background-repeat','no-repeat');
+  $(".h").css('text-decoration','none');
+  $(".v").css('text-decoration','underline');
+  $(".at").css('text-decoration','none');
+  $(".po").css('text-decoration','none');
+    })
+})
+$(document).ready(function() {
+    $(".atheletes").on("click", function () {
+        $(".tab-content").scrollTop(0);
+  $(".at").css('border-bottom','5px solid !important');
+  $(".h").css('border','none');
+  $(".v").css('border','none');
+  $(".po").css('border','none');
+  $(".nav.nav-tabs a").css('border','none');
+   $(".nav.nav-tabs a").css('color','#322f30');
+  $(".at").css('background','transparent');
+  $(".tab-content").css('background-image','url(/static/Capture99.PNG');
+  $(".tab-content").css('background-size','100% 100%');
+  $(".tab-content").css('background-repeat','no-repeat');
+  $(".tab-content").css('overflow-y','auto');
+$(".h").css('text-decoration','none');
+  $(".at").css('text-decoration','underline');
+  $(".v").css('text-decoration','none');
+  $(".po").css('text-decoration','none');
+    })
+})
+$(document).ready(function () {
+    $(".post").on("click", function () {
+        $(".tab-content").scrollTop(0);
+        $(".po").css('border-bottom', '5px solid !important');
+        $(".at").css('border', 'none');
+        $(".v").css('border', 'none');
+        $(".h").css('border', 'none');
+        $(".nav.nav-tabs a").css('border', 'none');
+        $(".nav.nav-tabs a").css('color', '#322f30');
+        $(".po").css('background', 'transparent');
+        $(".tab-content").css('overflow-y', 'auto');
+        $(".tab-content").css('background-image', 'url(/static/Capture6.PNG)');
+        $(".tab-content").css('background-size', '100% 100%');
+        $(".tab-content").css('background-repeat', 'no-repeat');
+         $(".h").css('text-decoration','none');
+  $(".po").css('text-decoration','underline');
+  $(".at").css('text-decoration','none');
+  $(".v").css('text-decoration','none');
+    })
+})
+$(document).ready(function() {
+    $(".active").on("click", function () {
+        $(".h").css('border-bottom','5px solid !important');
+  $(".v").css('border','none');
+  $(".at").css('border','none');
+  $(".po").css('border','none');
+  $(".tab-content").css('background','url(http://moziru.com/images/fist-clipart-fist-punch-4.png)');
+  $(".tab-content").css('background-size','100% 100%');
+  $(".tab-content").css('background-repeat','no-repeat');
+  $(".tab-content").css('overflow','hidden');
+ $(".nav.nav-tabs a").css('border','none');
+   $(".nav.nav-tabs a").css('color','#322f30');
+   $(".v").css('text-decoration','none');
+  $(".h").css('text-decoration','underline');
+  $(".at").css('text-decoration','none');
+  $(".po").css('text-decoration','none');
+
+    })
+})
+function func(){
+  $("iframe.image2")[0].src="";
+}
+$(document).ready(function() {
+    var name1, story1;
+    $(".pb").on("click", function () {
+        name1 = $('#post input').val();
+        story1 = $('#post textarea').val();
+        $(".view").prepend("<div class='views'><p><span>#" + name1 + "#</span>  " + story1 + "</p></div>");
+        $.ajax({
+          method:'POST',
+          url:'/user/create/',
+          data:{
+            data1:name1,
+            data2:story1,
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+          }
+        })
+    })
+})
+$(document).ready(function() {
+    $(".post").on("click", function () {
+        $(".scrolltop3").css('z-index', '999');
+        $(".tab-content").on("scroll", function () {
+
+            if ($(".tab-content").scrollTop() >= 70) {
+                $(".scrolltop3").css('display', 'block');
+            }
+            else {
+                $(".scrolltop3").css('display', 'none');
+            }
+        })
+
+    })
+    $(".scrolltop3").on("click", function () {
+        $(".tab-content").animate({scrollTop: 0}, 800);
+    })
+})
+    </script>
+
+
+
+</head>
+<body>
+<div class="loader"></div>
+  <div class="container">
+    <div id="menu">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" class="h" href="#home">HOME</a></li>
+    <li class="videos"><a data-toggle="tab" class="v" href="#videos">VIDEOS</a></li>
+    <li class="atheletes"><a data-toggle="tab" class="at" href="#atheletes">ATHELETES</a></li>
+    <li class="post"><a data-toggle="tab" class="po" href="#post"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#322f30" d="M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z" />
+</svg></a></li>
+    <li><div class="a x"></div>
+    <div class="b x"></div>
+      <div class="c x"></div>
+        <div class="d x"></div>
+      <div class="e x"></div>
+      <div class="f x"></div>
+      <div class="g x"></div>
+      <div class="ha x"></div>
+      <div class="i x"></div>
+      <div class="j x"></div>
+      <div class="k x"></div>
+      <div class="l x"></div>
+      </li>
+  </ul>
+      </div>
+<div class="blank">
+  </div>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active home">
+      <div class="text">
+      <div class="glitch" data-text="Fist">Fist</div>
+      <div id="freerun"><p>Freerun</p></div>
+      </div>
+      <ul  class="cb-slideshow">
+        <li>
+          <span></span>
+        </li>
+        <li>
+          <span></span>
+        </li>
+        <li>
+          <span></span>
+        </li>
+      </ul>
+    </div>
+    <div id="videos" class="tab-pane fade">
+  <iframe onplay="func()" allowFullScreen='allowFullScreen' mozallowfullscreen="mozallowfullscreen"
+        msallowfullscreen="msallowfullscreen"
+        oallowfullscreen="oallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen" class="image1" width="275"height="200"src="https://www.youtube.com/embed/TgY2B9k480c">
+</iframe>
+      <iframe allowFullScreen='allowFullScreen' mozallowfullscreen="mozallowfullscreen"
+        msallowfullscreen="msallowfullscreen"
+        oallowfullscreen="oallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen" class="image2" width="275"height="200"src="https://www.youtube.com/embed/GSASURnjGmA">
+</iframe>
+      <iframe allowFullScreen='allowFullScreen' mozallowfullscreen="mozallowfullscreen"
+        msallowfullscreen="msallowfullscreen"
+        oallowfullscreen="oallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen" class="image3" width="275"height="200"src="https://www.youtube.com/embed/RyXIKfQX0LA">
+</iframe>
+    </div>
+    <div id="atheletes" class="tab-pane fade">
+      <div class="card1 card">
+        <div class="ath1"></div>
+        <p class="about"><span class="tc"># From a play-time sport to imitating great parkour atheletes it gradually became a source o my adrenaline rush #</span></br><span class="imp">Contact no.</span>: 8280116216</br><span class="imp">E-mail id</span>: adarshdora1998@gmail.com</span></br><span># Plz let me know what you think #</span></p>
+        <p class="name">-Aditya Panda</p>
+      </div>
+      <div class="card2 card">
+        <div class="ath2"></div>
+        <p class="about"><span class="tc"># From a play-time sport to imitating great parkour atheletes it gradually became a source of my adrenaline rush #</span></br><span class="imp">Contact no.</span>: 8280116216</br><span class="imp">E-mail id</span>: adarshdora1998@gmail.com</span></br><span># Plz let me know what you think #</span></p>
+        <p class="name">-Debasis Mahapatra</p>
+      </div>
+      <div class="card3 card">
+        <div class="ath3"></div>
+        <p class="about"><span class="tc"># From a play-time sport to imitating great parkour atheletes it gradually became a source of my adrenaline rush #</span></br><span class="imp">Contact no.</span>: 8280116216</br><span class="imp">E-mail id</span>: adarshdora1998@gmail.com</span></br><span># Plz let me know what you think #</span></p>
+        <p class="name">-Adarsh Dora</p>
+      </div>
+    </div>
+    <div id="post" class="tab-pane fade">
+      <input placeholder="   Name"/>
+      <textarea placeholder="   You can enter your views,ideas and video links here"></textarea>
+      <button class="pb">Post</button>{% csrf_token %}
+      <div class="view">
+      </div>
+      <button class="scrolltop3"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+</svg></button>
+    </div>
+  </div>
+  <div class="contact">
+    <p>Follow us on:</p>
+      <a  class="facebook" href="#"><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+    <path fill="#3B5998" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z" />
+</svg></a>
+
+    <a href="https://www.youtube.com/channel/UCPQgpWhVXYZ7kQcd88PzEsw" class="y"><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+    <path fill="#CC181E" d="M10,16.5V7.5L16,12M20,4.4C19.4,4.2 15.7,4 12,4C8.3,4 4.6,4.19 4,4.38C2.44,4.9 2,8.4 2,12C2,15.59 2.44,19.1 4,19.61C4.6,19.81 8.3,20 12,20C15.7,20 19.4,19.81 20,19.61C21.56,19.1 22,15.59 22,12C22,8.4 21.56,4.91 20,4.4Z" />
+</svg></a>
+    <p id="sign">Designed by : Adarsh(Fist Freerun)</p>
+  </div>
+</div>
+</body>
+</html>
